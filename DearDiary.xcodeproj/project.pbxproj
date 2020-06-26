@@ -13,6 +13,12 @@
 		1131DEE924A687EB00C39687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEE724A687EB00C39687 /* Main.storyboard */; };
 		1131DEEB24A687F000C39687 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEEA24A687F000C39687 /* Assets.xcassets */; };
 		1131DEEE24A687F000C39687 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEEC24A687F000C39687 /* LaunchScreen.storyboard */; };
+		114B043324A68F150047C18A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B043224A68F140047C18A /* LoginViewController.swift */; };
+		114B043524A68F3E0047C18A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B043424A68F3E0047C18A /* SignUpViewController.swift */; };
+		114B043724A6914E0047C18A /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B043624A6914E0047C18A /* SetupViewController.swift */; };
+		118A5DFC24A69B1A008A939A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFB24A69B1A008A939A /* Constants.swift */; };
+		118A5DFE24A69B24008A939A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFD24A69B24008A939A /* Utilities.swift */; };
+		118A5E0024A69C07008A939A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFF24A69C07008A939A /* Validation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		1131DEEA24A687F000C39687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1131DEED24A687F000C39687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1131DEEF24A687F000C39687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		114B043224A68F140047C18A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		114B043424A68F3E0047C18A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		114B043624A6914E0047C18A /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		118A5DFB24A69B1A008A939A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		118A5DFD24A69B24008A939A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		118A5DFF24A69C07008A939A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				1131DEE524A687EB00C39687 /* HomeViewController.swift */,
+				114B043224A68F140047C18A /* LoginViewController.swift */,
+				114B043424A68F3E0047C18A /* SignUpViewController.swift */,
+				114B043624A6914E0047C18A /* SetupViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -87,6 +102,9 @@
 		1131DEF724A688B000C39687 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				118A5DFB24A69B1A008A939A /* Constants.swift */,
+				118A5DFD24A69B24008A939A /* Utilities.swift */,
+				118A5DFF24A69C07008A939A /* Validation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -162,9 +180,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				114B043324A68F150047C18A /* LoginViewController.swift in Sources */,
 				1131DEE624A687EB00C39687 /* HomeViewController.swift in Sources */,
 				1131DEE224A687EB00C39687 /* AppDelegate.swift in Sources */,
 				1131DEE424A687EB00C39687 /* SceneDelegate.swift in Sources */,
+				118A5E0024A69C07008A939A /* Validation.swift in Sources */,
+				118A5DFC24A69B1A008A939A /* Constants.swift in Sources */,
+				114B043724A6914E0047C18A /* SetupViewController.swift in Sources */,
+				118A5DFE24A69B24008A939A /* Utilities.swift in Sources */,
+				114B043524A68F3E0047C18A /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

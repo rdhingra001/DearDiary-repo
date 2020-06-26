@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  DearDiary
 //
 //  Created by Ronit Dhingra on 6/26/20.
@@ -8,13 +8,19 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var emailTextField: UITextField!
     
     
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     
     @IBOutlet weak var loginButton: UIButton!
     
+    
+    
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +31,19 @@ class HomeViewController: UIViewController {
     
     func setupElements() {
         
-        // Style our buttons
-        Utilities.styleFilledButton(signUpButton)
-        Utilities.styleHollowButton(loginButton)
+        // Hide the error label
+        errorLabel.alpha = 0
+        
+        // Style our text fields
+        Utilities.styleTextField(emailTextField)
+        Utilities.styleTextField(passwordTextField)
+        
+        // Style the button
+        Utilities.styleFilledButton(loginButton)
+    }
+    
+    
+    @IBAction func loginTapped(_ sender: Any) {
     }
     
 
@@ -42,4 +58,3 @@ class HomeViewController: UIViewController {
     */
 
 }
-

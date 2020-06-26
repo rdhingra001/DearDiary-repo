@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SignUpViewController.swift
 //  DearDiary
 //
 //  Created by Ronit Dhingra on 6/26/20.
@@ -8,13 +8,25 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class SignUpViewController: UIViewController {
+    
+    
+    @IBOutlet weak var firstNameTextField: UITextField!
+    
+    
+    @IBOutlet weak var lastNameTextField: UITextField!
+    
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    
+    @IBOutlet weak var passwordTextField: UITextField!
     
     
     @IBOutlet weak var signUpButton: UIButton!
     
-    @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +37,20 @@ class HomeViewController: UIViewController {
     
     func setupElements() {
         
-        // Style our buttons
+        // Hide the error label
+        errorLabel.alpha = 0
+        
+        // Style our text fields
+        Utilities.styleTextField(firstNameTextField)
+        Utilities.styleTextField(lastNameTextField)
+        Utilities.styleTextField(emailTextField)
+        Utilities.styleTextField(passwordTextField)
+        
+        // Style the button
         Utilities.styleFilledButton(signUpButton)
-        Utilities.styleHollowButton(loginButton)
+    }
+    
+    @IBAction func signUpTapped(_ sender: Any) {
     }
     
 
@@ -42,4 +65,3 @@ class HomeViewController: UIViewController {
     */
 
 }
-
