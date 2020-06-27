@@ -19,9 +19,12 @@
 		118A5DFC24A69B1A008A939A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFB24A69B1A008A939A /* Constants.swift */; };
 		118A5DFE24A69B24008A939A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFD24A69B24008A939A /* Utilities.swift */; };
 		118A5E0024A69C07008A939A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFF24A69C07008A939A /* Validation.swift */; };
+		118A5E0224A6DE51008A939A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 118A5E0124A6DE51008A939A /* GoogleService-Info.plist */; };
+		674001595A8D6EAAE65DE825 /* Pods_DearDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94D58F6CB6DFC48CAC04776 /* Pods_DearDiary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		055AC8AE951DD2A9DC13BB64 /* Pods-DearDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiary.release.xcconfig"; path = "Target Support Files/Pods-DearDiary/Pods-DearDiary.release.xcconfig"; sourceTree = "<group>"; };
 		1131DEDE24A687EB00C39687 /* DearDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DearDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1131DEE124A687EB00C39687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1131DEE324A687EB00C39687 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,9 @@
 		118A5DFB24A69B1A008A939A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		118A5DFD24A69B24008A939A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		118A5DFF24A69C07008A939A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		118A5E0124A6DE51008A939A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1666C227625038E17DA9ACE0 /* Pods-DearDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiary.debug.xcconfig"; path = "Target Support Files/Pods-DearDiary/Pods-DearDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		A94D58F6CB6DFC48CAC04776 /* Pods_DearDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				674001595A8D6EAAE65DE825 /* Pods_DearDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +61,8 @@
 			children = (
 				1131DEE024A687EB00C39687 /* DearDiary */,
 				1131DEDF24A687EB00C39687 /* Products */,
+				7D53F7D99967BF5D1A47814A /* Pods */,
+				A84C685F7C8477D2042CBD93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +84,7 @@
 				1131DEF524A6886B00C39687 /* View Controllers */,
 				1131DEEA24A687F000C39687 /* Assets.xcassets */,
 				1131DEEF24A687F000C39687 /* Info.plist */,
+				118A5E0124A6DE51008A939A /* GoogleService-Info.plist */,
 			);
 			path = DearDiary;
 			sourceTree = "<group>";
@@ -109,6 +119,24 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		7D53F7D99967BF5D1A47814A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1666C227625038E17DA9ACE0 /* Pods-DearDiary.debug.xcconfig */,
+				055AC8AE951DD2A9DC13BB64 /* Pods-DearDiary.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A84C685F7C8477D2042CBD93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A94D58F6CB6DFC48CAC04776 /* Pods_DearDiary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +144,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1131DEF224A687F000C39687 /* Build configuration list for PBXNativeTarget "DearDiary" */;
 			buildPhases = (
+				EAA000D77B9C93A78868DB92 /* [CP] Check Pods Manifest.lock */,
 				1131DEDA24A687EB00C39687 /* Sources */,
 				1131DEDB24A687EB00C39687 /* Frameworks */,
 				1131DEDC24A687EB00C39687 /* Resources */,
+				3D8E48582DBB30F1B92D693B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,12 +198,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				1131DEEE24A687F000C39687 /* LaunchScreen.storyboard in Resources */,
+				118A5E0224A6DE51008A939A /* GoogleService-Info.plist in Resources */,
 				1131DEEB24A687F000C39687 /* Assets.xcassets in Resources */,
 				1131DEE924A687EB00C39687 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D8E48582DBB30F1B92D693B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAA000D77B9C93A78868DB92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DearDiary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1131DEDA24A687EB00C39687 /* Sources */ = {
@@ -330,6 +403,7 @@
 		};
 		1131DEF324A687F000C39687 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1666C227625038E17DA9ACE0 /* Pods-DearDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -348,6 +422,7 @@
 		};
 		1131DEF424A687F000C39687 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 055AC8AE951DD2A9DC13BB64 /* Pods-DearDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
