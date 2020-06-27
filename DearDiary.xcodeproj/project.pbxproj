@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1123213824A7915900922214 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1123213724A7915900922214 /* CacheManager.swift */; };
 		1131DEE224A687EB00C39687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131DEE124A687EB00C39687 /* AppDelegate.swift */; };
 		1131DEE424A687EB00C39687 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131DEE324A687EB00C39687 /* SceneDelegate.swift */; };
 		1131DEE624A687EB00C39687 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131DEE524A687EB00C39687 /* HomeViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		055AC8AE951DD2A9DC13BB64 /* Pods-DearDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiary.release.xcconfig"; path = "Target Support Files/Pods-DearDiary/Pods-DearDiary.release.xcconfig"; sourceTree = "<group>"; };
+		1123213724A7915900922214 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		1131DEDE24A687EB00C39687 /* DearDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DearDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1131DEE124A687EB00C39687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1131DEE324A687EB00C39687 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				118A5DFB24A69B1A008A939A /* Constants.swift */,
 				118A5DFD24A69B24008A939A /* Utilities.swift */,
 				118A5DFF24A69C07008A939A /* Validation.swift */,
+				1123213724A7915900922214 /* CacheManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -125,7 +128,6 @@
 				1666C227625038E17DA9ACE0 /* Pods-DearDiary.debug.xcconfig */,
 				055AC8AE951DD2A9DC13BB64 /* Pods-DearDiary.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -149,6 +151,7 @@
 				1131DEDB24A687EB00C39687 /* Frameworks */,
 				1131DEDC24A687EB00C39687 /* Resources */,
 				3D8E48582DBB30F1B92D693B /* [CP] Embed Pods Frameworks */,
+				DF05CB38F8BEDE2F00218B24 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,6 +227,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DF05CB38F8BEDE2F00218B24 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EAA000D77B9C93A78868DB92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,6 +277,7 @@
 				1131DEE624A687EB00C39687 /* HomeViewController.swift in Sources */,
 				1131DEE224A687EB00C39687 /* AppDelegate.swift in Sources */,
 				1131DEE424A687EB00C39687 /* SceneDelegate.swift in Sources */,
+				1123213824A7915900922214 /* CacheManager.swift in Sources */,
 				118A5E0024A69C07008A939A /* Validation.swift in Sources */,
 				118A5DFC24A69B1A008A939A /* Constants.swift in Sources */,
 				114B043724A6914E0047C18A /* SetupViewController.swift in Sources */,
