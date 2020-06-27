@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var dearDiaryTitleLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,8 @@ class HomeViewController: UIViewController {
     
     func setupElements() {
         
-        // Style our buttons
+        // Style our buttons and entry label
+        Utilities.styleLabel(dearDiaryTitleLabel)
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(loginButton)
     }
