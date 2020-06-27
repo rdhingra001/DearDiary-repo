@@ -48,8 +48,15 @@ class Utilities {
     static func styleLabel(_ label:UILabel) {
         
         label.textColor = UIColor.init(red: 58/255, green: 134/255, blue: 133/255, alpha: 0.93375)
-        label.layer.cornerRadius = 75
+        label.layer.cornerRadius = 75.0
     
+    }
+    
+    static func styleSetupLabel(_ label:UILabel) {
+        
+        label.textColor = UIColor.init(red: 48/255, green: 129/255, blue: 143/255, alpha: 0.93275)
+        label.layer.cornerRadius = 75.0
+        
     }
     
 

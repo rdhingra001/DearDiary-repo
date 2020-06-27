@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     
-    
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
