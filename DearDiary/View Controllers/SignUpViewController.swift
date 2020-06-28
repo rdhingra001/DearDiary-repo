@@ -33,6 +33,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        checkValidation()
         setupElements()
     }
     
@@ -108,6 +109,7 @@ class SignUpViewController: UIViewController {
                     // User was created successfully; store credentials
                     let db = Firestore.firestore()
                     
+                    KeychainWrapper.standard.set((result?.user.uid)!, forKey: "uid")
                     db.collection("users").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": result!.user.uid]) { (error) in
                         
                         if error != nil {
@@ -139,6 +141,13 @@ class SignUpViewController: UIViewController {
         
         view.window?.rootViewController = setupViewController
         view.window?.makeKeyAndVisible()
+    }
+    
+    func checkValidation() {
+        
+        if KeychainWrapper.standard.object(forKey: "uid") != nil {
+            self.transitionToSetup()
+        }
     }
 
     /*

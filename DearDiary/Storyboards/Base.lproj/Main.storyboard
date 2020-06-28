@@ -10,7 +10,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="3H7-Aa-k0W">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" id="Lcu-4M-ckR" customClass="SignUpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="Lcu-4M-ckR" customClass="SignUpViewController" customModule="DearDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7S4-u0-iWs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fQh-Rq-TY9"/>
                     <connections>
-                        <outlet property="emailTextField" destination="JBC-vJ-Esd" id="msW-tk-IEf"/>
+                        <outlet property="emailTextField" destination="JBC-vJ-Esd" id="Dj6-0O-Uxe"/>
                         <outlet property="errorLabel" destination="Zui-ka-g9b" id="aEq-qT-KyB"/>
                         <outlet property="firstNameTextField" destination="kyN-gY-F7l" id="xVQ-Ri-IaV"/>
                         <outlet property="lastNameTextField" destination="21H-7j-ufA" id="YC6-gR-e1e"/>
@@ -112,7 +112,7 @@
                                         </constraints>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
-                                            <segue destination="Lcu-4M-ckR" kind="show" id="RI7-PW-oCo"/>
+                                            <segue destination="Lcu-4M-ckR" kind="show" id="xYO-fl-tBc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhw-Bq-Egr">
@@ -353,6 +353,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PbU-Im-LAQ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="OGJ-9y-ONw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

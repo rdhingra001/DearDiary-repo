@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupElements()
+        checkValidation()
     }
     
     func setupElements() {
@@ -32,6 +33,24 @@ class HomeViewController: UIViewController {
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(loginButton)
     }
+    
+    
+    func checkValidation() {
+        
+        if KeychainWrapper.standard.object(forKey: "uid") != nil {
+            self.transitionToSetup()
+        }
+    }
+    
+    func transitionToSetup() {
+        
+        let setupViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.setupViewController) as? SetupViewController
+        
+        view.window?.rootViewController = setupViewController
+        view.window?.makeKeyAndVisible()
+    }
+
+
     
 
     /*

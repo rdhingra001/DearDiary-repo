@@ -21,6 +21,8 @@
 		118A5DFE24A69B24008A939A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFD24A69B24008A939A /* Utilities.swift */; };
 		118A5E0024A69C07008A939A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFF24A69C07008A939A /* Validation.swift */; };
 		118A5E0224A6DE51008A939A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 118A5E0124A6DE51008A939A /* GoogleService-Info.plist */; };
+		11BE77CC24A922E2003D3FEA /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE77CA24A922E0003D3FEA /* KeychainWrapper.swift */; };
+		11BE77CD24A922E2003D3FEA /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE77CB24A922E2003D3FEA /* KeychainItemAccessibility.swift */; };
 		674001595A8D6EAAE65DE825 /* Pods_DearDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94D58F6CB6DFC48CAC04776 /* Pods_DearDiary.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		118A5DFD24A69B24008A939A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		118A5DFF24A69C07008A939A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		118A5E0124A6DE51008A939A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		11BE77CA24A922E0003D3FEA /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		11BE77CB24A922E2003D3FEA /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		1666C227625038E17DA9ACE0 /* Pods-DearDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiary.debug.xcconfig"; path = "Target Support Files/Pods-DearDiary/Pods-DearDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		A94D58F6CB6DFC48CAC04776 /* Pods_DearDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +83,7 @@
 		1131DEE024A687EB00C39687 /* DearDiary */ = {
 			isa = PBXGroup;
 			children = (
+				11BE77C924A9216A003D3FEA /* SwiftKeychainWrapper */,
 				1131DEE124A687EB00C39687 /* AppDelegate.swift */,
 				1131DEE324A687EB00C39687 /* SceneDelegate.swift */,
 				1131DEF724A688B000C39687 /* Helpers */,
@@ -120,6 +125,15 @@
 				1123213724A7915900922214 /* CacheManager.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		11BE77C924A9216A003D3FEA /* SwiftKeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				11BE77CB24A922E2003D3FEA /* KeychainItemAccessibility.swift */,
+				11BE77CA24A922E0003D3FEA /* KeychainWrapper.swift */,
+			);
+			path = SwiftKeychainWrapper;
 			sourceTree = "<group>";
 		};
 		7D53F7D99967BF5D1A47814A /* Pods */ = {
@@ -276,7 +290,9 @@
 				114B043324A68F150047C18A /* LoginViewController.swift in Sources */,
 				1131DEE624A687EB00C39687 /* HomeViewController.swift in Sources */,
 				1131DEE224A687EB00C39687 /* AppDelegate.swift in Sources */,
+				11BE77CC24A922E2003D3FEA /* KeychainWrapper.swift in Sources */,
 				1131DEE424A687EB00C39687 /* SceneDelegate.swift in Sources */,
+				11BE77CD24A922E2003D3FEA /* KeychainItemAccessibility.swift in Sources */,
 				1123213824A7915900922214 /* CacheManager.swift in Sources */,
 				118A5E0024A69C07008A939A /* Validation.swift in Sources */,
 				118A5DFC24A69B1A008A939A /* Constants.swift in Sources */,

@@ -22,10 +22,12 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        checkValidation()
         setupElements()
     }
     
@@ -62,6 +64,8 @@ class LoginViewController: UIViewController {
             
             // Signing the user
             Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                
+                KeychainWrapper.standard.set((result?.user.uid)!, forKey: "uid")
                 
                 if error != nil {
                     
@@ -112,6 +116,13 @@ class LoginViewController: UIViewController {
         
         view.window?.rootViewController = setupViewController
         view.window?.makeKeyAndVisible()
+    }
+    
+    func checkValidation() {
+        
+        if KeychainWrapper.standard.object(forKey: "uid") != nil {
+            self.transitionToSetup()
+        }
     }
 
     
