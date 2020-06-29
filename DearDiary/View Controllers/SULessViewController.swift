@@ -25,6 +25,7 @@ class SULessViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupElements()
     }
     
     func setupElements() {

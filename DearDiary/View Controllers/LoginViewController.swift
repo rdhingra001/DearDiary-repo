@@ -30,7 +30,6 @@ class LoginViewController: UIViewController {
         checkValidation()
         setupElements()
         
-        var i = 0
     }
     
     func setupElements() {
