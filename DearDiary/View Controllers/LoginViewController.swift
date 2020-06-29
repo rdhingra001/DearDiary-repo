@@ -29,6 +29,8 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         checkValidation()
         setupElements()
+        
+        var i = 0
     }
     
     func setupElements() {
