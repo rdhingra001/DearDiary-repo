@@ -110,6 +110,7 @@ class SignUpViewController: UIViewController {
                     let db = Firestore.firestore()
                     
                     KeychainWrapper.standard.set((result?.user.uid)!, forKey: "uid")
+                    
                     db.collection("users").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": result!.user.uid]) { (error) in
                         
                         if error != nil {
