@@ -23,6 +23,8 @@
 		118A5E0224A6DE51008A939A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 118A5E0124A6DE51008A939A /* GoogleService-Info.plist */; };
 		11BE77CC24A922E2003D3FEA /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE77CA24A922E0003D3FEA /* KeychainWrapper.swift */; };
 		11BE77CD24A922E2003D3FEA /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE77CB24A922E2003D3FEA /* KeychainItemAccessibility.swift */; };
+		11F2793424A98F5500DF2FAC /* SULessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F2793324A98F5500DF2FAC /* SULessViewController.swift */; };
+		11F2793624A98FAD00DF2FAC /* LLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F2793524A98FAD00DF2FAC /* LLessViewController.swift */; };
 		674001595A8D6EAAE65DE825 /* Pods_DearDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94D58F6CB6DFC48CAC04776 /* Pods_DearDiary.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		118A5E0124A6DE51008A939A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11BE77CA24A922E0003D3FEA /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		11BE77CB24A922E2003D3FEA /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		11F2793324A98F5500DF2FAC /* SULessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SULessViewController.swift; sourceTree = "<group>"; };
+		11F2793524A98FAD00DF2FAC /* LLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLessViewController.swift; sourceTree = "<group>"; };
 		1666C227625038E17DA9ACE0 /* Pods-DearDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiary.debug.xcconfig"; path = "Target Support Files/Pods-DearDiary/Pods-DearDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		A94D58F6CB6DFC48CAC04776 /* Pods_DearDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +107,8 @@
 				114B043224A68F140047C18A /* LoginViewController.swift */,
 				114B043424A68F3E0047C18A /* SignUpViewController.swift */,
 				114B043624A6914E0047C18A /* SetupViewController.swift */,
+				11F2793324A98F5500DF2FAC /* SULessViewController.swift */,
+				11F2793524A98FAD00DF2FAC /* LLessViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -290,12 +296,14 @@
 				114B043324A68F150047C18A /* LoginViewController.swift in Sources */,
 				1131DEE624A687EB00C39687 /* HomeViewController.swift in Sources */,
 				1131DEE224A687EB00C39687 /* AppDelegate.swift in Sources */,
+				11F2793424A98F5500DF2FAC /* SULessViewController.swift in Sources */,
 				11BE77CC24A922E2003D3FEA /* KeychainWrapper.swift in Sources */,
 				1131DEE424A687EB00C39687 /* SceneDelegate.swift in Sources */,
 				11BE77CD24A922E2003D3FEA /* KeychainItemAccessibility.swift in Sources */,
 				1123213824A7915900922214 /* CacheManager.swift in Sources */,
 				118A5E0024A69C07008A939A /* Validation.swift in Sources */,
 				118A5DFC24A69B1A008A939A /* Constants.swift in Sources */,
+				11F2793624A98FAD00DF2FAC /* LLessViewController.swift in Sources */,
 				114B043724A6914E0047C18A /* SetupViewController.swift in Sources */,
 				118A5DFE24A69B24008A939A /* Utilities.swift in Sources */,
 				114B043524A68F3E0047C18A /* SignUpViewController.swift in Sources */,

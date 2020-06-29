@@ -15,6 +15,12 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    
+    @IBOutlet weak var signUpPasswordLessButton: UIButton!
+    
+    
+    @IBOutlet weak var loginPasswordLessButton: UIButton!
+    
     @IBOutlet weak var dearDiaryTitleLabel: UILabel!
     
     
@@ -31,7 +37,9 @@ class HomeViewController: UIViewController {
         // Style our buttons and entry label
         Utilities.styleLabel(dearDiaryTitleLabel)
         Utilities.styleFilledButton(signUpButton)
+        Utilities.styleFilledButton(signUpPasswordLessButton)
         Utilities.styleHollowButton(loginButton)
+        Utilities.styleHollowButton(loginPasswordLessButton)
     }
     
     
