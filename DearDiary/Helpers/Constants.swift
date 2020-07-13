@@ -19,6 +19,7 @@ struct Constants {
         static let signUpViewController = "SignUpVC"
         static let loginViewController = "LoginVC"
         static let homeViewController = "HomeVC"
+        static let feedTableViewController = "FeedVC"
         
     }
     
@@ -26,7 +27,7 @@ struct Constants {
         
         // Initializing the firebase properties
         let storage = Storage.storage()
-        let firestore = Firestore.firestore()
+        let database = Database.database()
         let auth = Auth.auth()
         
     }

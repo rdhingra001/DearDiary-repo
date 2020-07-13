@@ -3,34 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>377449142125-0g3rnfko1u63gilcp7keg35dhd5dvjbm.apps.googleusercontent.com</string>
+	<string>221921179455-137h0ni5r71vi8vfnkt0gjouete6vqdc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.377449142125-0g3rnfko1u63gilcp7keg35dhd5dvjbm</string>
+	<string>com.googleusercontent.apps.221921179455-137h0ni5r71vi8vfnkt0gjouete6vqdc</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDf15wU_4by4AjCNhWs7rRs6C0aLtY0qyk</string>
+	<string>AIzaSyAgumYv414ar9ZCb0gD10D-XRNLZzflgJM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>377449142125</string>
+	<string>221921179455</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.rdhdapps.DearDiary</string>
 	<key>PROJECT_ID</key>
-	<string>dear-diary-281601</string>
+	<string>clovernotes-60e0a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>dear-diary-281601.appspot.com</string>
+	<string>clovernotes-60e0a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:377449142125:ios:a56fb956b9d574b9562c64</string>
+	<string>1:221921179455:ios:7610f5d5bf27d04cf6058a</string>
 	<key>DATABASE_URL</key>
-	<string>https://dear-diary-281601.firebaseio.com</string>
+	<string>https://clovernotes-60e0a.firebaseio.com</string>
 </dict>
 </plist>
