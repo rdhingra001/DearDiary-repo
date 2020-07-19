@@ -32,5 +32,11 @@ struct Constants {
         
     }
     
+    struct CoreDataTools {
+        
+        // Initializing the app delegate Core Data model view in a constants file
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    }
+    
     
 }

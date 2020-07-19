@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Firebase
 
 class LoginViewController: UIViewController {
@@ -21,6 +22,9 @@ class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var errorLabel: UILabel!
+    
+    // Initializing the app delegate Core Data model view in a constants file
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     override func viewDidLoad() {
@@ -75,6 +79,8 @@ class LoginViewController: UIViewController {
                 else {
                     
                     let uid = Auth.auth().currentUser?.uid
+                    
+                    let UserData = UserDataDemo(context: self.context)
                     
                     KeychainWrapper.standard.set(uid!, forKey: "uid")
                     

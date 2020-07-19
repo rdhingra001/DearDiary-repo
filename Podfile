@@ -13,6 +13,7 @@ pod 'Firebase/Database'
 pod 'Firebase/Core'
 pod 'Firebase/Storage'
 pod 'Firebase'
+pod 'Firebase/Crashlytics'
 
 
 end
