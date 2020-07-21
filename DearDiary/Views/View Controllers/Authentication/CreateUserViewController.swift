@@ -1,0 +1,290 @@
+//
+//  CreateUserViewController.swift
+//  DearDiary
+//
+//  Created by  Ronit D. on 7/20/20.
+//  Copyright © 2020 Ronit Dhingra. All rights reserved.
+//
+
+import UIKit
+import Firebase
+import CoreData
+
+class CreateUserViewController: UIViewController {
+
+    @IBOutlet weak var firstNameTextField: UITextField!
+    
+    
+    @IBOutlet weak var lastNameTextField: UITextField!
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    
+    
+    @IBOutlet weak var selecterButton: UIButton!
+    
+    var selectedImage: UIImage?
+    
+    var imagePicker: UIImagePickerController!
+    
+    var profilePicture: UIImage!
+    
+    var items: [UserDataDemo]?
+    
+    // Initializing the app delegate Core Data model view in a constants file
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        setupElements()
+        
+        // Initilizing the variable to represent the image displayed in this image view
+        profilePicture = profilePictureImageView.image!
+        
+        // Initilizing the UIImagePickerController() func into a variable
+        imagePicker = UIImagePickerController()
+        
+        // Obtaining access to the 'didFinishPickingMediaWithInfo' func
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        let defaultProfilePic = UIImage(named: "defaultProfilePicture")
+        
+        // Setting the selected image as the default pic at startup
+        selectedImage = defaultProfilePic
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkValidation()
+    }
+    
+    func setupElements() {
+        
+        // Hide the error label
+        errorLabel.alpha = 0
+        
+        // Style our text fields
+        Utilities.styleTextField(firstNameTextField)
+        Utilities.styleTextField(lastNameTextField)
+        Utilities.styleTextField(usernameTextField)
+        Utilities.styleTextField(emailTextField)
+        Utilities.styleTextField(passwordTextField)
+        
+        // Style the button
+        Utilities.styleFilledButton(signUpButton)
+    }
+    
+    // Validate the fields
+    func validateFields() -> String? {
+        
+        // Check that all fields are filled in
+        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            
+            return "Please fill in all the fields"
+        }
+        
+        // Check if the password is secure
+        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if Validation.isPasswordValid(cleanedPassword) == false {
+            // Password isn't secure enough
+            return "Please make sure your password is at least 8 characters, contains a special character, and a number. "
+        }
+        
+        return nil
+    }
+    
+    // Store the user data in Firebase server
+    func storeUserData(firstName: String!, lastName: String!, email: String!, userId: String!, username: String!) {
+        
+        if let imageData = selectedImage?.jpegData(compressionQuality: 0.2) {
+            
+            let imgUid = NSUUID().uuidString
+            
+            let uploadTask = Storage.storage().reference().child(imgUid).putData(imageData, metadata: nil) { (metadata, error) in
+                
+                guard metadata != nil else {
+                    print("Failed to upload profile image")
+                    return
+                }
+                
+                let downloadURL = Storage.storage().reference().downloadURL
+                
+                // User was created successfully; store credentials
+                let db = Database.database()
+                
+                KeychainWrapper.standard.set(userId, forKey: "uid")
+                
+                let userData = ["firstname": firstName!, "lastname": lastName!, "username": username!, "profilePicLink": downloadURL, "userid": userId!] as [String : Any]
+                
+                db.reference().child("users").child(userId).setValue(userData) { (err, ref) in
+                    
+                    if err != nil {
+                        self.showError("Data could not be saved")
+                        debugPrint("Error: \(err!.localizedDescription)")
+                    }
+                    else {
+                        debugPrint("Data was saved successfully")
+                    }
+                }
+                
+            }
+            
+            uploadTask.resume()
+            
+            
+            
+            
+        }
+        
+        
+
+    }
+    
+    
+    // Actions called when selecterButton gets pressed
+    @IBAction func getPhoto(_ sender: Any) {
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    // Actions called when Sign Up button is tapped
+    @IBAction func signUpTapped(_ sender: Any) {
+        
+        // Validate the fields
+        let error = validateFields()
+        
+        if error != nil {
+            
+            // There's something wrong with the fields; show error message
+            showError(error!)
+        }
+        else {
+            
+            
+            // Create inital records of first and last name
+            let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            // Create the user
+            Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+                
+                // Check for errors
+                if err != nil {
+                    
+                    // There was an error creating the user
+                    self.showError("Error creating user")
+                    print("Error: \(err!.localizedDescription)")
+                }
+                else {
+                    
+                    self.storeUserData(firstName: firstName, lastName: lastName, email: email, userId: result?.user.uid, username: username)
+                    
+                    // Create an instance of the user saved data onboard to Core Data
+                    let UserData = UserDataDemo(context: self.context)
+                    UserData.firstname = firstName
+                    UserData.lastname = lastName
+                    UserData.username = username
+                    UserData.uid = Auth.auth().currentUser!.uid
+                    
+                    // Transition to the setup screen
+                    self.transitionToFeed()
+                }
+            }
+            
+            
+        }
+
+    }
+    
+    func showError(_ message:String) {
+        
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
+    
+    func transitionToFeed() {
+        
+        let feedTableViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.feedTableViewController) as? FeedTableViewController
+        
+        view.window?.rootViewController = feedTableViewController
+        view.window?.makeKeyAndVisible()
+    }
+    
+    func checkValidation() {
+        
+        if KeychainWrapper.standard.object(forKey: "uid") != nil {
+            self.transitionToFeed()
+        }
+    }
+    
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension CreateUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // What will be called when the user is done picking their image in the UIImagePickerController()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+            // Switching the selectedImage as the image clicked on in the UIImagePickerController
+            selectedImage = image
+            selecterButton.titleLabel!.text = "Change your profile pic"
+            
+            // Switching the image view to the selected image to confirm if they clicked on the right image
+            profilePicture = selectedImage
+        }
+        else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            // Switching the selectedImage as the image clicked on in the UIImagePickerController
+            selectedImage = image
+            selecterButton.titleLabel!.text = "Change your profile pic"
+            
+            // Switching the image view to the selected image to confirm if they clicked on the right image
+            profilePicture = selectedImage
+        }
+        
+        // Dismissing the imagePicker
+        self.imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+
+

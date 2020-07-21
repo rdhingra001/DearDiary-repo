@@ -14,6 +14,8 @@ pod 'Firebase/Core'
 pod 'Firebase/Storage'
 pod 'Firebase'
 pod 'Firebase/Crashlytics'
+pod 'FBSDKLoginKit'
+    
 
 
 end

@@ -16,6 +16,8 @@ class ShareSomethingCell: UITableViewCell {
     
     @IBOutlet weak var shareSomethingTextField: UITextField!
     
+    @IBOutlet weak var shareButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
