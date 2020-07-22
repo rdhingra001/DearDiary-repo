@@ -12,15 +12,19 @@ import FBSDKLoginKit
 import Firebase
 
 class HomeViewController: UIViewController {
-    
-    
+
     @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var homeStackView: UIStackView!
+
     
-    let FacebookLoginButton = FBLoginButton()
+    private let FacebookLoginButton: FBLoginButton = {
+        let button = FBLoginButton()
+        button.permissions = ["email", "public_profile"]
+        return button
+    }()
     
     @IBOutlet weak var facebookButton: UIButton!
     
@@ -31,6 +35,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupElements()
         facebookButton = FacebookLoginButton
+        FacebookLoginButton.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,4 +80,67 @@ class HomeViewController: UIViewController {
     */
 
 }
+
+extension HomeViewController: LoginButtonDelegate {
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        // No Action Taken
+    }
+    
+    
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        guard let token = result?.token?.tokenString else {
+            debugPrint("An error occured")
+            return
+        }
+        
+        
+        
+        
+        let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "email, name"], tokenString: token, version: nil, httpMethod: .get)
+        
+        
+        facebookRequest.start { (_, result, error) in
+            guard let result = result as? [String:Any], error == nil else {
+                print("Failed to create graph request")
+                return
+            }
+            
+            guard let username = result["name"] as? String, let email = result["email"] as? String else {
+                print("Failed to retrieve email and name from FB request.")
+                return
+            }
+            
+            let nameComponents = username.components(separatedBy: " ")
+            
+            let firstName = nameComponents[0]
+            let lastName = nameComponents[1]
+            
+            let credentials = FacebookAuthProvider.credential(withAccessToken: token)
+            
+            Auth.auth().signIn(with: credentials) { [weak self] (authResult, err) in
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                guard let result = authResult, err == nil else {
+                    print("Authentication failed: \(err!)")
+                    
+                    return
+                }
+                
+                Database.database().reference().child("CloverNotes").child("facebook-users").setValue(["firstname": firstName, "lastname": lastName, "email": email, "uid": Auth.auth().currentUser?.uid])
+                
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            }
+            
+            
+        }
+        
+        
+    }
+}
+
+
 

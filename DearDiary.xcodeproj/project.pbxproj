@@ -26,7 +26,6 @@
 		11951ABD24C65F4300DC4B7E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11951ABC24C65F4300DC4B7E /* Post.swift */; };
 		1196B81524BBBF770059E914 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196B81424BBBF770059E914 /* FeedTableViewController.swift */; };
 		1196B81A24BBC0440059E914 /* ShareSomethingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196B81924BBC0440059E914 /* ShareSomethingCell.swift */; };
-		11B3681424C78CFB008EA952 /* FaceBookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3681324C78CFB008EA952 /* FaceBookLoginViewController.swift */; };
 		11B3681624C78E24008EA952 /* DMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3681524C78E23008EA952 /* DMTableViewController.swift */; };
 		11B3E59324BBCC3C00BEAB56 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3E59224BBCC3C00BEAB56 /* CacheManager.swift */; };
 		11BE77CC24A922E2003D3FEA /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE77CA24A922E0003D3FEA /* KeychainWrapper.swift */; };
@@ -64,7 +63,6 @@
 		11951ABC24C65F4300DC4B7E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1196B81424BBBF770059E914 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		1196B81924BBC0440059E914 /* ShareSomethingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSomethingCell.swift; sourceTree = "<group>"; };
-		11B3681324C78CFB008EA952 /* FaceBookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBookLoginViewController.swift; sourceTree = "<group>"; };
 		11B3681524C78E23008EA952 /* DMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMTableViewController.swift; sourceTree = "<group>"; };
 		11B3E59224BBCC3C00BEAB56 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		11BE77CA24A922E0003D3FEA /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 			children = (
 				11F8CE8D24B7972F003081DF /* LoginViewController.swift */,
 				11951AB724C641B500DC4B7E /* CreateUserViewController.swift */,
-				11B3681324C78CFB008EA952 /* FaceBookLoginViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -309,6 +306,7 @@
 				1131DEDC24A687EB00C39687 /* Resources */,
 				3D8E48582DBB30F1B92D693B /* [CP] Embed Pods Frameworks */,
 				11E44F8924BE5E2200DEA8BD /* ShellScript */,
+				442934795F10C365DE4D4138 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,6 +399,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		442934795F10C365DE4D4138 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DearDiary/Pods-DearDiary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EAA000D77B9C93A78868DB92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -449,7 +464,6 @@
 				118A5E0024A69C07008A939A /* Validation.swift in Sources */,
 				118D68C924C66F8D0006C90F /* CommentsTableViewController.swift in Sources */,
 				11C9CCB024C3A8F200FA7B82 /* DearDiary.xcdatamodeld in Sources */,
-				11B3681424C78CFB008EA952 /* FaceBookLoginViewController.swift in Sources */,
 				1196B81A24BBC0440059E914 /* ShareSomethingCell.swift in Sources */,
 				118A5DFC24A69B1A008A939A /* Constants.swift in Sources */,
 				11951ABD24C65F4300DC4B7E /* Post.swift in Sources */,

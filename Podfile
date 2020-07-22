@@ -15,6 +15,7 @@ pod 'Firebase/Storage'
 pod 'Firebase'
 pod 'Firebase/Crashlytics'
 pod 'FBSDKLoginKit'
+pod 'GoogleSignIn'
     
 
 
