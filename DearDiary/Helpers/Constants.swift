@@ -26,16 +26,16 @@ struct Constants {
     struct FirebaseUtilities {
         
         // Initializing the firebase properties
-        let storage = Storage.storage()
-        let database = Database.database()
-        let auth = Auth.auth()
+        public let storage = Storage.storage()
+        public let database = Database.database()
+        public let auth = Auth.auth()
         
     }
     
     struct CoreDataTools {
         
         // Initializing the app delegate Core Data model view in a constants file
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        public let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
     

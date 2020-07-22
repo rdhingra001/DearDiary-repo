@@ -44,6 +44,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("Failed to sign in with Google: \(error!)")
             return
         }
+        
+        let email = user.profile.email
+        let firstName = user.profile.givenName
+        let lastName = user.profile.familyName
+        
+        guard let authentication = user.authentication else { return }
+        let credentials = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credentials) { (authResult, error) in
+            guard authResult != nil, error == nil else {
+                if let error = error {
+                    print("Error is present: \(error)")
+                }
+                return
+            }
+            
+            Database.database().reference().child("google-users").child((authResult?.user.uid)!).setValue(["firstname": firstName, "lastname": lastName, "email": email, "uid": Auth.auth().currentUser?.uid])
+            
+            print("Google user was successfully created")
+            NotificationCenter.default.post(name: Notification.Name(""), object: nil)
+        }
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print("Google user was disconnected")
     }
 
     // MARK: UISceneSession Lifecycle
@@ -72,6 +98,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                 annotation: options[UIApplication.OpenURLOptionsKey.annotation]
             )
+            
+            return GIDSignIn.sharedInstance().handle(url)
 
         }
     

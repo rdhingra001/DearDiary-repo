@@ -8,8 +8,12 @@
 
 import Foundation
 import UIKit
+import FBSDKLoginKit
+import GoogleSignIn
 
 class Utilities {
+    
+    static var customColor: UIColor = UIColor.init(red: 48/255, green: 129/255, blue: 143/255, alpha: 1)
     
     static func styleTextField(_ textfield:UITextField) {
         
@@ -18,7 +22,7 @@ class Utilities {
         
         bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width, height: 2)
         
-        bottomLine.backgroundColor = UIColor.init(red: 48/255, green: 129/255, blue: 143/255, alpha: 1).cgColor
+        bottomLine.backgroundColor = customColor.cgColor
         
         // Remove border on text field
         textfield.borderStyle = .none
@@ -40,7 +44,7 @@ class Utilities {
         
         // Hollow rounded corner style
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = customColor.cgColor
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.black
     }
@@ -57,6 +61,16 @@ class Utilities {
         label.textColor = UIColor.init(red: 48/255, green: 129/255, blue: 143/255, alpha: 0.93275)
         label.layer.cornerRadius = 75.0
         
+    }
+    
+    static func roundenButtonFacebook(_ button: FBLoginButton) {
+        
+        button.layer.cornerRadius = 25.0
+    }
+    
+    static func roundenButtonGoogle(_ button: GIDSignInButton) {
+        
+        button.layer.cornerRadius = 25.0
     }
     
 

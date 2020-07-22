@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import Firebase
 
 struct CacheManager {
-    
+    static var password: String!
 }

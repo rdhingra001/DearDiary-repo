@@ -211,6 +211,9 @@ class CreateUserViewController: UIViewController {
                     UserData.username = username
                     UserData.uid = Auth.auth().currentUser!.uid
                     
+                    // Cache the user's password so that they don't need to log in everytime
+                    CacheManager.password = password
+                    
                     // Transition to the setup screen
                     self.transitionToFeed()
                 }
@@ -265,7 +268,6 @@ extension CreateUserViewController: UIImagePickerControllerDelegate, UINavigatio
             
             // Switching the selectedImage as the image clicked on in the UIImagePickerController
             selectedImage = image
-            selecterButton.titleLabel!.text = "Change your profile pic"
             
             // Switching the image view to the selected image to confirm if they clicked on the right image
             profilePicture = selectedImage
@@ -274,7 +276,6 @@ extension CreateUserViewController: UIImagePickerControllerDelegate, UINavigatio
             
             // Switching the selectedImage as the image clicked on in the UIImagePickerController
             selectedImage = image
-            selecterButton.titleLabel!.text = "Change your profile pic"
             
             // Switching the image view to the selected image to confirm if they clicked on the right image
             profilePicture = selectedImage

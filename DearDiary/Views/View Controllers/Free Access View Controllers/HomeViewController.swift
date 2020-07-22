@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import GoogleSignIn
 
 class HomeViewController: UIViewController {
 
@@ -18,51 +19,91 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var homeStackView: UIStackView!
+    
+    @IBOutlet weak var facebookButton: UIButton!
+    
+    @IBOutlet weak var googleButton: UIButton!
 
     
-    private let FacebookLoginButton: FBLoginButton = {
+    private let FacebookLoginButton: FBLoginButton! = {
         let button = FBLoginButton()
         button.permissions = ["email", "public_profile"]
         return button
     }()
     
-    @IBOutlet weak var facebookButton: UIButton!
+    private let GoogleLoginButton: GIDSignInButton! = {
+        let button = GIDSignInButton()
+        return button
+    }()
+    
+    private var loginObserver: NSObjectProtocol!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        loginObserver = NotificationCenter.default.addObserver(forName: Notification.Name(""), object: nil, queue: .main, using: { [weak self] (notification) in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            
+            strongSelf.transitionToFeed()
+        })
+        
         setupElements()
-        facebookButton = FacebookLoginButton
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         FacebookLoginButton.delegate = self
+        facebookButton.alpha = 0
+        googleButton.alpha = 0
+        homeStackView.addSubview(FacebookLoginButton)
+        homeStackView.addSubview(GoogleLoginButton)
+        
+    }
+    
+    deinit {
+        if loginObserver != nil {
+            NotificationCenter.default.removeObserver(loginObserver)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         checkValidation()
     }
     
+    override func viewDidLayoutSubviews() {
+        FacebookLoginButton.frame = CGRect(x: 0, y: 0, width: 334, height: 50)
+        GoogleLoginButton.frame = CGRect(x: 0, y: 80, width: 334, height: 50)
+    }
     
     func setupElements() {
         
         // Style our buttons and entry label
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(loginButton)
+        
+        // Give our third-party login options the rounded button
+        Utilities.roundenButtonFacebook(FacebookLoginButton)
+        Utilities.roundenButtonGoogle(GoogleLoginButton)
     }
     
     
     func checkValidation() {
         
         if KeychainWrapper.standard.object(forKey: "uid") != nil {
-            self.transitionToSetup()
+            self.transitionToFeed()
         }
     }
     
-    func transitionToSetup() {
+    func transitionToFeed() {
         
-        let profileViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.setupViewController) as? ProfileViewController
+        let feedViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.setupViewController) as? FeedTableViewController
         
-        view.window?.rootViewController = profileViewController
+        view.window?.rootViewController = feedViewController
         view.window?.makeKeyAndVisible()
     }
 
@@ -133,6 +174,8 @@ extension HomeViewController: LoginButtonDelegate {
                 Database.database().reference().child("CloverNotes").child("facebook-users").setValue(["firstname": firstName, "lastname": lastName, "email": email, "uid": Auth.auth().currentUser?.uid])
                 
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                
+                strongSelf.transitionToFeed()
             }
             
             
