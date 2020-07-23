@@ -60,7 +60,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             }
             
-            Database.database().reference().child("google-users").child((authResult?.user.uid)!).setValue(["firstname": firstName, "lastname": lastName, "email": email, "uid": Auth.auth().currentUser?.uid])
+            Database.database().reference().child("google-users").child((authResult?.user.uid)!).setValue(["firstname": firstName, "lastname": lastName, "email": email, "uid": Auth.auth().currentUser?.uid]) { (err, ref) in
+                
+                if err != nil {
+                    debugPrint("Error: \(err!.localizedDescription)")
+                }
+                else {
+                    debugPrint("Data was saved successfully")
+                }
+            }
             
             print("Google user was successfully created")
             NotificationCenter.default.post(name: Notification.Name(""), object: nil)

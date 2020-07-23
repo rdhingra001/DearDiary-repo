@@ -171,7 +171,15 @@ extension HomeViewController: LoginButtonDelegate {
                     return
                 }
                 
-                Database.database().reference().child("CloverNotes").child("facebook-users").setValue(["firstname": firstName, "lastname": lastName, "email": email, "uid": Auth.auth().currentUser?.uid])
+                Database.database().reference().child("CloverNotes").child("facebook-users").setValue(["firstname": firstName, "lastname": lastName, "email": email, "uid": Auth.auth().currentUser?.uid]) { (err, ref) in
+                    
+                    if err != nil {
+                        debugPrint("Error: \(err!.localizedDescription)")
+                    }
+                    else {
+                        debugPrint("Data was saved successfully")
+                    }
+                }
                 
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
                 

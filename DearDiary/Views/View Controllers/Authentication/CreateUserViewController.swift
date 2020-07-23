@@ -116,9 +116,7 @@ class CreateUserViewController: UIViewController {
         
         if let imageData = selectedImage?.jpegData(compressionQuality: 0.2) {
             
-            let imgUid = NSUUID().uuidString
-            
-            let uploadTask = Storage.storage().reference().child(imgUid).putData(imageData, metadata: nil) { (metadata, error) in
+            let uploadTask = Storage.storage().reference().child("users").child("user-profile-pics").child(email).putData(imageData, metadata: nil) { (metadata, error) in
                 
                 guard metadata != nil else {
                     print("Failed to upload profile image")
@@ -132,9 +130,9 @@ class CreateUserViewController: UIViewController {
                 
                 KeychainWrapper.standard.set(userId, forKey: "uid")
                 
-                let userData = ["firstname": firstName!, "lastname": lastName!, "username": username!, "profilePicLink": downloadURL, "userid": userId!] as [String : Any]
+                let userData = ["firstname": firstName!, "lastname": lastName!, "username": username!, "userid": userId!] as [String : Any]
                 
-                db.reference().child("users").child(userId).setValue(userData) { (err, ref) in
+                db.reference().child("basic-auth-users").child(userId).setValue(userData) { (err, ref) in
                     
                     if err != nil {
                         self.showError("Data could not be saved")

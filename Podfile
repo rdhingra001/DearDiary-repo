@@ -7,6 +7,8 @@ target 'DearDiary' do
 
   # Pods for DearDiary
 
+# Pods for Firebase
+
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
@@ -14,6 +16,10 @@ pod 'Firebase/Core'
 pod 'Firebase/Storage'
 pod 'Firebase'
 pod 'Firebase/Crashlytics'
+pod 'Firebase/Performance'
+
+# Third Party SDK's
+
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
     
