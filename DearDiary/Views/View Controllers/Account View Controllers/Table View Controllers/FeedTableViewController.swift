@@ -14,6 +14,8 @@ class FeedTableViewController: UITableViewController {
     var currentUserImageURL: String!
     
     var Posts = [Post]()
+    
+    @IBOutlet weak var homeTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,9 @@ class FeedTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        homeTableView.dataSource = self
+        homeTableView.delegate = self
         
         
         let feedTableViewController = (self.storyboard?.instantiateViewController(withIdentifier: "FeedVC"))!

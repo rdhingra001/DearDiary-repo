@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>CloverNotes</string>
+	<string>Social Spark</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -31,7 +31,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.221921179455-du3l9skuv84d4h3veu6q9qqhi17kc340</string>
+				<string>com.googleusercontent.apps.221921179455-i3unt9errlcd5goc0vh1i65h3kic587f</string>
 			</array>
 		</dict>
 	</array>
