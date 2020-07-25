@@ -13,7 +13,7 @@ import GoogleSignIn
 
 class Utilities {
     
-    static var customColor: UIColor = UIColor.init(red: 48/255, green: 129/255, blue: 143/255, alpha: 1)
+    static var customColor: UIColor = UIColor.init(red: 30/255, green: 125/255, blue: 165/255, alpha: 1)
     
     static func styleTextField(_ textfield:UITextField) {
         
@@ -35,8 +35,8 @@ class Utilities {
     static func styleFilledButton(_ button:UIButton) {
         
         // Filled rounded corner style
-        button.backgroundColor = UIColor.init(red: 48/255, green: 129/255, blue: 143/255, alpha: 1)
-        button.layer.cornerRadius = 25.0
+        button.backgroundColor = customColor
+        button.layer.cornerRadius = 15.0
         button.tintColor = UIColor.white
     }
     
@@ -45,8 +45,9 @@ class Utilities {
         // Hollow rounded corner style
         button.layer.borderWidth = 2
         button.layer.borderColor = customColor.cgColor
-        button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.black
+        button.layer.cornerRadius = 15.0
+        button.tintColor = UIColor.white
+        button.titleLabel?.alpha = 2
     }
     
     static func styleLabel(_ label:UILabel) {

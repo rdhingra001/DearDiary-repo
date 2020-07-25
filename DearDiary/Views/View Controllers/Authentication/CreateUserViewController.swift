@@ -87,6 +87,7 @@ class CreateUserViewController: UIViewController {
         
         // Style the button
         Utilities.styleFilledButton(signUpButton)
+        Utilities.styleFilledButton(selecterButton)
     }
     
     // Validate the fields
