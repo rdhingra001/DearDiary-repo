@@ -31,7 +31,7 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     
-    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var profilePicture: UIImageView!
     
     
     @IBOutlet weak var selecterButton: UIButton!
@@ -39,8 +39,6 @@ class CreateUserViewController: UIViewController {
     var selectedImage: UIImage?
     
     var imagePicker: UIImagePickerController!
-    
-    var profilePicture: UIImage!
     
     var items: [UserDataDemo]?
     
@@ -52,9 +50,6 @@ class CreateUserViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupElements()
-        
-        // Initilizing the variable to represent the image displayed in this image view
-        profilePicture = profilePictureImageView.image!
         
         // Initilizing the UIImagePickerController() func into a variable
         imagePicker = UIImagePickerController()
@@ -87,7 +82,7 @@ class CreateUserViewController: UIViewController {
         
         // Style the button
         Utilities.styleFilledButton(signUpButton)
-        Utilities.styleFilledButton(selecterButton)
+        Utilities.styleSelecterButton(selecterButton)
     }
     
     // Validate the fields
@@ -95,6 +90,7 @@ class CreateUserViewController: UIViewController {
         
         // Check that all fields are filled in
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
@@ -269,7 +265,8 @@ extension CreateUserViewController: UIImagePickerControllerDelegate, UINavigatio
             selectedImage = image
             
             // Switching the image view to the selected image to confirm if they clicked on the right image
-            profilePicture = selectedImage
+            profilePicture.image = selectedImage
+            
         }
         else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
@@ -277,7 +274,9 @@ extension CreateUserViewController: UIImagePickerControllerDelegate, UINavigatio
             selectedImage = image
             
             // Switching the image view to the selected image to confirm if they clicked on the right image
-            profilePicture = selectedImage
+            profilePicture.image = selectedImage
+            
+            
         }
         
         // Dismissing the imagePicker

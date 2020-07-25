@@ -13,6 +13,8 @@
 		1131DEE924A687EB00C39687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEE724A687EB00C39687 /* Main.storyboard */; };
 		1131DEEB24A687F000C39687 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEEA24A687F000C39687 /* Assets.xcassets */; };
 		1131DEEE24A687F000C39687 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEEC24A687F000C39687 /* LaunchScreen.storyboard */; };
+		1153D0E224CCA5CA00F86135 /* PasswordlessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153D0E124CCA5CA00F86135 /* PasswordlessViewController.swift */; };
+		1153D0E424CCA5F400F86135 /* SSImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153D0E324CCA5F400F86135 /* SSImagePickerController.swift */; };
 		1179627624C5132B005CE4E9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1179627524C51329005CE4E9 /* WebKit.framework */; };
 		118A5DFC24A69B1A008A939A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFB24A69B1A008A939A /* Constants.swift */; };
 		118A5DFE24A69B24008A939A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A5DFD24A69B24008A939A /* Utilities.swift */; };
@@ -50,6 +52,8 @@
 		1131DEEA24A687F000C39687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1131DEED24A687F000C39687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1131DEEF24A687F000C39687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1153D0E124CCA5CA00F86135 /* PasswordlessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordlessViewController.swift; sourceTree = "<group>"; };
+		1153D0E324CCA5F400F86135 /* SSImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImagePickerController.swift; sourceTree = "<group>"; };
 		1179627524C51329005CE4E9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		118A5DFB24A69B1A008A939A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		118A5DFD24A69B24008A939A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -155,6 +159,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		1153D0E524CCA66A00F86135 /* Custom Image Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				1153D0E324CCA5F400F86135 /* SSImagePickerController.swift */,
+			);
+			path = "Custom Image Pickers";
+			sourceTree = "<group>";
+		};
 		118D68C524C66DF50006C90F /* Image Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +262,7 @@
 			children = (
 				11F8CE8D24B7972F003081DF /* LoginViewController.swift */,
 				11951AB724C641B500DC4B7E /* CreateUserViewController.swift */,
+				1153D0E124CCA5CA00F86135 /* PasswordlessViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -266,6 +279,7 @@
 		11F8CE8924B7972F003081DF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1153D0E524CCA66A00F86135 /* Custom Image Pickers */,
 				118D68CB24C673BE0006C90F /* Navigation Controllers */,
 				118D68CA24C66FE00006C90F /* Free Access View Controllers */,
 				11E7491424C5114B00B8F521 /* Account View Controllers */,
@@ -456,6 +470,7 @@
 				11B3E59324BBCC3C00BEAB56 /* CacheManager.swift in Sources */,
 				118D68C724C66E240006C90F /* CircleImageView.swift in Sources */,
 				11F8CE8F24B7972F003081DF /* HomeViewController.swift in Sources */,
+				1153D0E224CCA5CA00F86135 /* PasswordlessViewController.swift in Sources */,
 				11F8CE9024B7972F003081DF /* ProfileViewController.swift in Sources */,
 				118D68CF24C6775A0006C90F /* CommentsCell.swift in Sources */,
 				1118A12224C3BA4C00920554 /* UserDataDemo+CoreDataClass.swift in Sources */,
@@ -467,6 +482,7 @@
 				1196B81A24BBC0440059E914 /* ShareSomethingCell.swift in Sources */,
 				118A5DFC24A69B1A008A939A /* Constants.swift in Sources */,
 				11951ABD24C65F4300DC4B7E /* Post.swift in Sources */,
+				1153D0E424CCA5F400F86135 /* SSImagePickerController.swift in Sources */,
 				118A5DFE24A69B24008A939A /* Utilities.swift in Sources */,
 				11E7491624C511C800B8F521 /* WebViewController.swift in Sources */,
 			);

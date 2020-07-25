@@ -28,6 +28,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var AppleLoginButton: UIButton!
     
+    @IBOutlet weak var passwordlessButton: UIButton!
+    
     let selectedImage = UIImage(named: "defaultProfilePicture")
     
     fileprivate var currentNonce: String?
@@ -118,9 +120,7 @@ class HomeViewController: UIViewController {
         // Style our buttons and entry label
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(loginButton)
-        
-        // Give our third-party login options the rounded button
-        Utilities.roundenButtonFacebook(FacebookLoginButton)
+        Utilities.styleFilledButton(passwordlessButton)
     }
     
     
