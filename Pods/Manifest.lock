@@ -32,6 +32,9 @@ PODS:
   - Firebase/Database (6.27.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.3.0)
+  - Firebase/DynamicLinks (6.27.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (~> 4.1.0)
   - Firebase/Performance (6.27.0):
     - Firebase/CoreOnly
     - FirebasePerformance (~> 3.1.11)
@@ -74,6 +77,8 @@ PODS:
   - FirebaseDatabase (6.3.0):
     - FirebaseCore (~> 6.8)
     - leveldb-library (~> 1.22)
+  - FirebaseDynamicLinks (4.1.0):
+    - FirebaseCore (~> 6.8)
   - FirebaseInstallations (1.4.0):
     - FirebaseCore (~> 6.8)
     - GoogleUtilities/Environment (~> 6.6)
@@ -146,6 +151,7 @@ PODS:
   - GTMSessionFetcher/Core (1.4.0)
   - GTMSessionFetcher/Full (1.4.0):
     - GTMSessionFetcher/Core (= 1.4.0)
+  - JGProgressHUD (2.1)
   - leveldb-library (1.22)
   - nanopb (1.30905.0):
     - nanopb/decode (= 1.30905.0)
@@ -163,9 +169,11 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Crashlytics
   - Firebase/Database
+  - Firebase/DynamicLinks
   - Firebase/Performance
   - Firebase/Storage
   - GoogleSignIn
+  - JGProgressHUD
 
 SPEC REPOS:
   trunk:
@@ -180,6 +188,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCrashlytics
     - FirebaseDatabase
+    - FirebaseDynamicLinks
     - FirebaseInstallations
     - FirebasePerformance
     - FirebaseRemoteConfig
@@ -192,6 +201,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
+    - JGProgressHUD
     - leveldb-library
     - nanopb
     - PromisesObjC
@@ -209,6 +219,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 4505e4d4009b1d93f605088ee7d7764d5f0d1c84
   FirebaseCrashlytics: 7d0fa02ea8842cc4b2ab07b0735edafde1ad77d6
   FirebaseDatabase: 3d02ffa794ec174853c086cf87cf2dc79bd6da49
+  FirebaseDynamicLinks: 50cff91aff05347770be750dde61d3311ff7ffc8
   FirebaseInstallations: 293f567159b6d66d1c990f13bb868066096c94ec
   FirebasePerformance: 5652d2004001e886da6dca04f478c695f87c4702
   FirebaseRemoteConfig: 63ae9d14848e645c7f070daa6af89265be48f803
@@ -221,11 +232,12 @@ SPEC CHECKSUMS:
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
 
-PODFILE CHECKSUM: dca015f70b79360ddefb4b672fa502ed790baa07
+PODFILE CHECKSUM: 6e43c755e51868d55d5b1c2cbccdbd2368248825
 
 COCOAPODS: 1.9.3

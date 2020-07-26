@@ -73,7 +73,7 @@ class Utilities {
         
     }
     
-    static func roundenButtonFacebook(_ button: FBLoginButton) {
+    static func roundenButton(_ button: UIButton) {
         
         button.layer.cornerRadius = 25.0
     }

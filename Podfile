@@ -17,11 +17,15 @@ pod 'Firebase/Storage'
 pod 'Firebase'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Performance'
+pod 'Firebase/DynamicLinks'
 
 # Third Party SDK's
 
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
+
+# Custom HUDs
+pod 'JGProgressHUD'
     
 
 

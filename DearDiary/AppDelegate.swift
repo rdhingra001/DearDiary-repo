@@ -64,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 
                 if err != nil {
                     debugPrint("Error: \(err!.localizedDescription)")
+                    return
                 }
                 else {
                     debugPrint("Data was saved successfully")
@@ -110,6 +111,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             return GIDSignIn.sharedInstance().handle(url)
 
         }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        return userActivity.webpageURL.flatMap(handlePasswordlessSignIn)!
+    }
+    
+    func handlePasswordlessSignIn(_ withURL: URL) -> Bool {
+        
+        let link = withURL.absoluteString
+        
+        if Auth.auth().isSignIn(withEmailLink: link) {
+            
+            guard let email = CacheManager.email else { return false }
+            
+            // Sign in the user
+            Auth.auth().signIn(withEmail: email, link: link) { (result, err) in
+                
+                guard err == nil else {
+                    print(err!.localizedDescription)
+                    return
+                }
+                
+                guard result != nil else { return }
+                
+                let uid = result!.user.uid
+                CacheManager.uid = uid
+                
+                let data = ["firstname": CacheManager.firstName, "lastname": CacheManager.lastName, "username": CacheManager.username, "userId": uid ]
+                Database.database().reference().child("basic-auth-users").child(uid).setValue(data) { (err, ref) in
+                    
+                    if err != nil {
+                        debugPrint("Error: \(err!.localizedDescription)")
+                        UIAlertService.showAlert(style: .alert, title: "Error", message: "Error: \(err.debugDescription)")
+                        return
+                    }
+                    
+                    let action = UIAlertAction(title: "Go to Feed", style: .default) { (action) in
+                        NotificationCenter.default.post(name: Notification.Name(""), object: nil)
+                    }
+                    
+                    UIAlertService.showAlert(style: .actionSheet, title: "Success", message: "Successfully logged in!", actions: [action], completion: nil)
+                }
+            }
+        }
+        return false
+    }
     
     // MARK: - Core Data stack
 

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1118A12224C3BA4C00920554 /* UserDataDemo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1118A12024C3BA4C00920554 /* UserDataDemo+CoreDataClass.swift */; };
+		112406AF24CCEC5600ECDD89 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 112406AE24CCEC5600ECDD89 /* GoogleService-Info.plist */; };
+		112406B124CD011900ECDD89 /* PlistParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406B024CD011900ECDD89 /* PlistParser.swift */; };
+		112406B324CD042100ECDD89 /* SetupPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406B224CD042000ECDD89 /* SetupPlist.swift */; };
+		112406B624CD097100ECDD89 /* AuthHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406B524CD097100ECDD89 /* AuthHUD.swift */; };
+		112406B924CD0AC000ECDD89 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406B824CD0AC000ECDD89 /* UIApplication+.swift */; };
+		112406BC24CDDCA300ECDD89 /* UIAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406BB24CDDCA300ECDD89 /* UIAlertService.swift */; };
 		1131DEE224A687EB00C39687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131DEE124A687EB00C39687 /* AppDelegate.swift */; };
 		1131DEE424A687EB00C39687 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131DEE324A687EB00C39687 /* SceneDelegate.swift */; };
 		1131DEE924A687EB00C39687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEE724A687EB00C39687 /* Main.storyboard */; };
@@ -34,7 +40,6 @@
 		11BE77CD24A922E2003D3FEA /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE77CB24A922E2003D3FEA /* KeychainItemAccessibility.swift */; };
 		11C9CC8924C3A5E200FA7B82 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C9CC8824C3A5E200FA7B82 /* CloudKit.framework */; };
 		11C9CCB024C3A8F200FA7B82 /* DearDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11C9CCAE24C3A8F200FA7B82 /* DearDiary.xcdatamodeld */; };
-		11D4E01824CA696200C72D3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D4E01724CA696200C72D3B /* GoogleService-Info.plist */; };
 		11E7491624C511C800B8F521 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E7491524C511C800B8F521 /* WebViewController.swift */; };
 		11F8CE8F24B7972F003081DF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8CE8B24B7972F003081DF /* HomeViewController.swift */; };
 		11F8CE9024B7972F003081DF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8CE8C24B7972F003081DF /* ProfileViewController.swift */; };
@@ -45,14 +50,20 @@
 /* Begin PBXFileReference section */
 		055AC8AE951DD2A9DC13BB64 /* Pods-DearDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiary.release.xcconfig"; path = "Target Support Files/Pods-DearDiary/Pods-DearDiary.release.xcconfig"; sourceTree = "<group>"; };
 		1118A12024C3BA4C00920554 /* UserDataDemo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataDemo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1131DEDE24A687EB00C39687 /* SocialSpark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialSpark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		112406AE24CCEC5600ECDD89 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		112406B024CD011900ECDD89 /* PlistParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistParser.swift; sourceTree = "<group>"; };
+		112406B224CD042000ECDD89 /* SetupPlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPlist.swift; sourceTree = "<group>"; };
+		112406B524CD097100ECDD89 /* AuthHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHUD.swift; sourceTree = "<group>"; };
+		112406B824CD0AC000ECDD89 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		112406BB24CDDCA300ECDD89 /* UIAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertService.swift; sourceTree = "<group>"; };
+		1131DEDE24A687EB00C39687 /* DearDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DearDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1131DEE124A687EB00C39687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1131DEE324A687EB00C39687 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1131DEE824A687EB00C39687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1131DEEA24A687F000C39687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1131DEED24A687F000C39687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1131DEEF24A687F000C39687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1153D0E124CCA5CA00F86135 /* PasswordlessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordlessViewController.swift; sourceTree = "<group>"; };
+		1153D0E124CCA5CA00F86135 /* PasswordlessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordlessViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		1153D0E324CCA5F400F86135 /* SSImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImagePickerController.swift; sourceTree = "<group>"; };
 		1179627524C51329005CE4E9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		118A5DFB24A69B1A008A939A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -73,7 +84,6 @@
 		11BE77CB24A922E2003D3FEA /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		11C9CC8824C3A5E200FA7B82 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		11C9CCAF24C3A8F200FA7B82 /* DearDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DearDiary.xcdatamodel; sourceTree = "<group>"; };
-		11D4E01724CA696200C72D3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11E7491524C511C800B8F521 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		11F8CE8B24B7972F003081DF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		11F8CE8C24B7972F003081DF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +114,31 @@
 			path = "User Data Models";
 			sourceTree = "<group>";
 		};
+		112406B424CD095A00ECDD89 /* Custom HUD's */ = {
+			isa = PBXGroup;
+			children = (
+				112406B524CD097100ECDD89 /* AuthHUD.swift */,
+			);
+			path = "Custom HUD's";
+			sourceTree = "<group>";
+		};
+		112406B724CD0A9D00ECDD89 /* Apple Framework Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				112406B824CD0AC000ECDD89 /* UIApplication+.swift */,
+			);
+			path = "Apple Framework Extensions";
+			sourceTree = "<group>";
+		};
+		112406BA24CDDC8900ECDD89 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				112406B724CD0A9D00ECDD89 /* Apple Framework Extensions */,
+				112406BB24CDDCA300ECDD89 /* UIAlertService.swift */,
+			);
+			path = "UI Elements";
+			sourceTree = "<group>";
+		};
 		1131DED524A687EB00C39687 = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +152,7 @@
 		1131DEDF24A687EB00C39687 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1131DEDE24A687EB00C39687 /* SocialSpark.app */,
+				1131DEDE24A687EB00C39687 /* DearDiary.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,7 +169,7 @@
 				1131DEF624A6888400C39687 /* Storyboards */,
 				1131DEEA24A687F000C39687 /* Assets.xcassets */,
 				1131DEEF24A687F000C39687 /* Info.plist */,
-				11D4E01724CA696200C72D3B /* GoogleService-Info.plist */,
+				112406AE24CCEC5600ECDD89 /* GoogleService-Info.plist */,
 			);
 			path = DearDiary;
 			sourceTree = "<group>";
@@ -151,10 +186,14 @@
 		1131DEF724A688B000C39687 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				112406BA24CDDC8900ECDD89 /* UI Elements */,
+				112406B424CD095A00ECDD89 /* Custom HUD's */,
 				11951ABB24C65F1E00DC4B7E /* Models */,
 				118A5DFD24A69B24008A939A /* Utilities.swift */,
 				118A5DFB24A69B1A008A939A /* Constants.swift */,
 				118A5DFF24A69C07008A939A /* Validation.swift */,
+				112406B024CD011900ECDD89 /* PlistParser.swift */,
+				112406B224CD042000ECDD89 /* SetupPlist.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -310,9 +349,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1131DEDD24A687EB00C39687 /* SocialSpark */ = {
+		1131DEDD24A687EB00C39687 /* DearDiary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1131DEF224A687F000C39687 /* Build configuration list for PBXNativeTarget "SocialSpark" */;
+			buildConfigurationList = 1131DEF224A687F000C39687 /* Build configuration list for PBXNativeTarget "DearDiary" */;
 			buildPhases = (
 				EAA000D77B9C93A78868DB92 /* [CP] Check Pods Manifest.lock */,
 				1131DEDA24A687EB00C39687 /* Sources */,
@@ -326,9 +365,9 @@
 			);
 			dependencies = (
 			);
-			name = SocialSpark;
+			name = DearDiary;
 			productName = DearDiary;
-			productReference = 1131DEDE24A687EB00C39687 /* SocialSpark.app */;
+			productReference = 1131DEDE24A687EB00C39687 /* DearDiary.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -346,7 +385,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1131DED924A687EB00C39687 /* Build configuration list for PBXProject "SocialSpark" */;
+			buildConfigurationList = 1131DED924A687EB00C39687 /* Build configuration list for PBXProject "DearDiary" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -359,7 +398,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1131DEDD24A687EB00C39687 /* SocialSpark */,
+				1131DEDD24A687EB00C39687 /* DearDiary */,
 			);
 		};
 /* End PBXProject section */
@@ -370,7 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1131DEEE24A687F000C39687 /* LaunchScreen.storyboard in Resources */,
-				11D4E01824CA696200C72D3B /* GoogleService-Info.plist in Resources */,
+				112406AF24CCEC5600ECDD89 /* GoogleService-Info.plist in Resources */,
 				1131DEEB24A687F000C39687 /* Assets.xcassets in Resources */,
 				1131DEE924A687EB00C39687 /* Main.storyboard in Resources */,
 			);
@@ -475,10 +514,15 @@
 				118D68CF24C6775A0006C90F /* CommentsCell.swift in Sources */,
 				1118A12224C3BA4C00920554 /* UserDataDemo+CoreDataClass.swift in Sources */,
 				118D68CD24C673E60006C90F /* NavigationViewController.swift in Sources */,
+				112406B324CD042100ECDD89 /* SetupPlist.swift in Sources */,
 				11951AB824C641B500DC4B7E /* CreateUserViewController.swift in Sources */,
+				112406BC24CDDCA300ECDD89 /* UIAlertService.swift in Sources */,
 				118A5E0024A69C07008A939A /* Validation.swift in Sources */,
 				118D68C924C66F8D0006C90F /* CommentsTableViewController.swift in Sources */,
+				112406B924CD0AC000ECDD89 /* UIApplication+.swift in Sources */,
+				112406B624CD097100ECDD89 /* AuthHUD.swift in Sources */,
 				11C9CCB024C3A8F200FA7B82 /* DearDiary.xcdatamodeld in Sources */,
+				112406B124CD011900ECDD89 /* PlistParser.swift in Sources */,
 				1196B81A24BBC0440059E914 /* ShareSomethingCell.swift in Sources */,
 				118A5DFC24A69B1A008A939A /* Constants.swift in Sources */,
 				11951ABD24C65F4300DC4B7E /* Post.swift in Sources */,
@@ -673,7 +717,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1131DED924A687EB00C39687 /* Build configuration list for PBXProject "SocialSpark" */ = {
+		1131DED924A687EB00C39687 /* Build configuration list for PBXProject "DearDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1131DEF024A687F000C39687 /* Debug */,
@@ -682,7 +726,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1131DEF224A687F000C39687 /* Build configuration list for PBXNativeTarget "SocialSpark" */ = {
+		1131DEF224A687F000C39687 /* Build configuration list for PBXNativeTarget "DearDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1131DEF324A687F000C39687 /* Debug */,

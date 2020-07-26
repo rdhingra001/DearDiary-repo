@@ -206,8 +206,11 @@ class CreateUserViewController: UIViewController {
                     UserData.username = username
                     UserData.uid = Auth.auth().currentUser!.uid
                     
-                    // Cache the user's password so that they don't need to log in everytime
+                    // Cache the user's email and password so that they don't need to log in everytime
+                    CacheManager.email = email
+                    print("Email: \(email)")
                     CacheManager.password = password
+                    print("Password: \(password)")
                     
                     // Transition to the setup screen
                     self.transitionToFeed()

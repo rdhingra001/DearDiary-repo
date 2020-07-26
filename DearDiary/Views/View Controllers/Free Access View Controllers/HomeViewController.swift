@@ -14,6 +14,7 @@ import Firebase
 import GoogleSignIn
 import AuthenticationServices
 
+/// The class created to manage data on the home view controller, or the root view that is present when you open the app for the first time
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
@@ -46,7 +47,7 @@ class HomeViewController: UIViewController {
     }()
     
     private let ASALoginButon: ASAuthorizationAppleIDButton! = {
-        let button = ASAuthorizationAppleIDButton()
+        let button = ASAuthorizationAppleIDButton(type: .continue, style: .white)
         return button
     }()
     
@@ -99,6 +100,22 @@ class HomeViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        // Open the mail app when email link has been sent
+        if SetupPlist.shouldOpenMailApp {
+            SetupPlist.shouldOpenMailApp = false
+            if let url = URL(string: "message://") {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIAlertService.showAlert(style: .alert, title: "Error", message: "Could not open Mail app")
+                }
+            }
+        }
+    }
+    
     deinit {
         if loginObserver != nil {
             NotificationCenter.default.removeObserver(loginObserver)
@@ -113,11 +130,21 @@ class HomeViewController: UIViewController {
         FacebookLoginButton.frame = CGRect(x: 0, y: 0, width: 334, height: 50)
         GoogleLoginButton.frame = CGRect(x: 0, y: 70, width: 334, height: 50)
         ASALoginButon.frame = CGRect(x: 0, y: 140, width: 334, height: 45)
+        
+        
+        // Centering the theird party buttons in perspective of the stack view
+        NSLayoutConstraint.activate([
+                                        FacebookLoginButton.centerXAnchor.constraint(equalTo: homeStackView.centerXAnchor),
+                                        ASALoginButon.centerXAnchor.constraint(equalTo: homeStackView.centerXAnchor),
+                                        GoogleLoginButton.centerXAnchor.constraint(equalTo: homeStackView.centerXAnchor)])
+        
     }
     
     func setupElements() {
         
         // Style our buttons and entry label
+        Utilities.roundenButton(facebookButton)
+        Utilities.roundenButton(AppleLoginButton)
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(loginButton)
         Utilities.styleFilledButton(passwordlessButton)

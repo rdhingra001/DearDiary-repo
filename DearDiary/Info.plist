@@ -34,13 +34,29 @@
 				<string>com.googleusercontent.apps.221921179455-i3unt9errlcd5goc0vh1i65h3kic587f</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Open App</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.rdhdapps.SocialSpark</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
 	<string>211762526811166</string>
 	<key>FacebookDisplayName</key>
-	<string>CloverNotes</string>
+	<string>Social Spark</string>
+	<key>FirebaseOpenAppQueryItemEmailName</key>
+	<string></string>
+	<key>FirebaseOpenAppScheme</key>
+	<string>https</string>
+	<key>FirebaseOpenAppURLPrefix</key>
+	<string>socialspark.page.link</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
