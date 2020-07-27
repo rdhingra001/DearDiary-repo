@@ -42,6 +42,8 @@ class CreateUserViewController: UIViewController {
     
     var items: [UserDataDemo]?
     
+    var authHud = AuthHUD.create()
+    
     // Initializing the app delegate Core Data model view in a constants file
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -172,7 +174,7 @@ class CreateUserViewController: UIViewController {
             showError(error!)
         }
         else {
-            
+            AuthHUD.handle(authHud, with: AuthHudInfo(type: .show, text: "Processing", detailText: "Creating user..."))
             
             // Create inital records of first and last name
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -186,34 +188,44 @@ class CreateUserViewController: UIViewController {
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             // Create the user
-            Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, err) in
+                
+                guard let strongSelf = self else {
+                    return
+                }
                 
                 // Check for errors
                 if err != nil {
                     
                     // There was an error creating the user
-                    self.showError("Error creating user")
+                    AuthHUD.handle(strongSelf.authHud, with: AuthHudInfo(type: .error, text: "Error", detailText: err.debugDescription))
                     print("Error: \(err!.localizedDescription)")
                 }
                 else {
                     
-                    self.storeUserData(firstName: firstName, lastName: lastName, email: email, userId: result?.user.uid, username: username)
+                    strongSelf.storeUserData(firstName: firstName, lastName: lastName, email: email, userId: result?.user.uid, username: username)
                     
                     // Create an instance of the user saved data onboard to Core Data
-                    let UserData = UserDataDemo(context: self.context)
+                    let UserData = UserDataDemo(context: strongSelf.context)
                     UserData.firstname = firstName
                     UserData.lastname = lastName
                     UserData.username = username
                     UserData.uid = Auth.auth().currentUser!.uid
                     
-                    // Cache the user's email and password so that they don't need to log in everytime
+                    // Cache the user's creds so that they don't need to log in everytime
+                    CacheManager.firstName = firstName
+                    print("First name: \(CacheManager.firstName ?? "No first name found")")
+                    CacheManager.lastName = lastName
+                    print("Last name: \(CacheManager.lastName ?? "No last name found")")
+                    CacheManager.username = username
+                    print("Username: \(CacheManager.username ?? "No username found")")
                     CacheManager.email = email
-                    print("Email: \(email)")
+                    print("Email: \(CacheManager.email ?? "No email found")")
                     CacheManager.password = password
-                    print("Password: \(password)")
+                    print("Password: \(CacheManager.password ?? "No password found")")
                     
                     // Transition to the setup screen
-                    self.transitionToFeed()
+                    strongSelf.transitionToFeed()
                 }
             }
             

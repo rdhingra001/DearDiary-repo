@@ -14,11 +14,13 @@
 		112406B624CD097100ECDD89 /* AuthHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406B524CD097100ECDD89 /* AuthHUD.swift */; };
 		112406B924CD0AC000ECDD89 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406B824CD0AC000ECDD89 /* UIApplication+.swift */; };
 		112406BC24CDDCA300ECDD89 /* UIAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406BB24CDDCA300ECDD89 /* UIAlertService.swift */; };
+		112406BF24CE4F8000ECDD89 /* ChatHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112406BE24CE4F8000ECDD89 /* ChatHomeViewController.swift */; };
 		1131DEE224A687EB00C39687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131DEE124A687EB00C39687 /* AppDelegate.swift */; };
 		1131DEE424A687EB00C39687 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131DEE324A687EB00C39687 /* SceneDelegate.swift */; };
 		1131DEE924A687EB00C39687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEE724A687EB00C39687 /* Main.storyboard */; };
 		1131DEEB24A687F000C39687 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEEA24A687F000C39687 /* Assets.xcassets */; };
 		1131DEEE24A687F000C39687 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1131DEEC24A687F000C39687 /* LaunchScreen.storyboard */; };
+		1141890D24CE5922005FD21E /* CurrentChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1141890C24CE5922005FD21E /* CurrentChatViewController.swift */; };
 		1153D0E224CCA5CA00F86135 /* PasswordlessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153D0E124CCA5CA00F86135 /* PasswordlessViewController.swift */; };
 		1153D0E424CCA5F400F86135 /* SSImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153D0E324CCA5F400F86135 /* SSImagePickerController.swift */; };
 		1179627624C5132B005CE4E9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1179627524C51329005CE4E9 /* WebKit.framework */; };
@@ -56,6 +58,7 @@
 		112406B524CD097100ECDD89 /* AuthHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHUD.swift; sourceTree = "<group>"; };
 		112406B824CD0AC000ECDD89 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		112406BB24CDDCA300ECDD89 /* UIAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertService.swift; sourceTree = "<group>"; };
+		112406BE24CE4F8000ECDD89 /* ChatHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHomeViewController.swift; sourceTree = "<group>"; };
 		1131DEDE24A687EB00C39687 /* DearDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DearDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1131DEE124A687EB00C39687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1131DEE324A687EB00C39687 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		1131DEEA24A687F000C39687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1131DEED24A687F000C39687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1131DEEF24A687F000C39687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1141890C24CE5922005FD21E /* CurrentChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentChatViewController.swift; sourceTree = "<group>"; };
 		1153D0E124CCA5CA00F86135 /* PasswordlessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordlessViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		1153D0E324CCA5F400F86135 /* SSImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImagePickerController.swift; sourceTree = "<group>"; };
 		1179627524C51329005CE4E9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -137,6 +141,15 @@
 				112406BB24CDDCA300ECDD89 /* UIAlertService.swift */,
 			);
 			path = "UI Elements";
+			sourceTree = "<group>";
+		};
+		112406BD24CE4DAF00ECDD89 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				112406BE24CE4F8000ECDD89 /* ChatHomeViewController.swift */,
+				1141890C24CE5922005FD21E /* CurrentChatViewController.swift */,
+			);
+			path = Conversations;
 			sourceTree = "<group>";
 		};
 		1131DED524A687EB00C39687 = {
@@ -309,6 +322,7 @@
 		11E7491424C5114B00B8F521 /* Account View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				112406BD24CE4DAF00ECDD89 /* Conversations */,
 				1196B81824BBBF9A0059E914 /* Table View Controllers */,
 				11F8CE8C24B7972F003081DF /* ProfileViewController.swift */,
 			);
@@ -507,6 +521,7 @@
 				11951ABA24C65BEE00DC4B7E /* PostCell.swift in Sources */,
 				11BE77CD24A922E2003D3FEA /* KeychainItemAccessibility.swift in Sources */,
 				11B3E59324BBCC3C00BEAB56 /* CacheManager.swift in Sources */,
+				1141890D24CE5922005FD21E /* CurrentChatViewController.swift in Sources */,
 				118D68C724C66E240006C90F /* CircleImageView.swift in Sources */,
 				11F8CE8F24B7972F003081DF /* HomeViewController.swift in Sources */,
 				1153D0E224CCA5CA00F86135 /* PasswordlessViewController.swift in Sources */,
@@ -529,6 +544,7 @@
 				1153D0E424CCA5F400F86135 /* SSImagePickerController.swift in Sources */,
 				118A5DFE24A69B24008A939A /* Utilities.swift in Sources */,
 				11E7491624C511C800B8F521 /* WebViewController.swift in Sources */,
+				112406BF24CE4F8000ECDD89 /* ChatHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

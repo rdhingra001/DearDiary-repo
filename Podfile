@@ -24,6 +24,11 @@ pod 'Firebase/DynamicLinks'
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
 
+# Messaging
+pod 'MessageKit'
+pod 'SDWebImage'
+
+
 # Custom HUDs
 pod 'JGProgressHUD'
     

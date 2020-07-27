@@ -26,6 +26,8 @@ class LoginViewController: UIViewController {
     // Initializing the app delegate Core Data model view in a constants file
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var authHud = AuthHUD.create()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,28 +65,42 @@ class LoginViewController: UIViewController {
             showError(error!)
         }
         else {
+            
+            AuthHUD.handle(authHud, with: AuthHudInfo(type: .show, text: "Processing", detailText: "Logging you in..."))
                         
             // Create cleaned versions of the user data
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             // Signing the user
-            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
+                
+                guard let strongSelf = self else {
+                    return
+                }
                 
                 if error != nil {
                     
                     // Couldn't sign in
-                    self.showError(error!.localizedDescription)
+                    AuthHUD.handle(strongSelf.authHud, with: AuthHudInfo(type: .error, text: "Error", detailText: error.debugDescription))
+                    print(error!.localizedDescription)
                 }
                 else {
                     
                     let uid = Auth.auth().currentUser?.uid
                     
-                    let UserData = UserDataDemo(context: self.context)
+                    let UserData = UserDataDemo(context: strongSelf.context)
                     
                     KeychainWrapper.standard.set(uid!, forKey: "uid")
                     
-                    self.transitionToFeed()
+                    CacheManager.email = email
+                    debugPrint("Email: \(CacheManager.email ?? "No email found")")
+                    CacheManager.password = password
+                    debugPrint("Password: \(CacheManager.password ?? "No password found")")
+                    CacheManager.uid = uid
+                    debugPrint("UID: \(CacheManager.uid ?? "No uid found")")
+                    
+                    strongSelf.transitionToFeed()
                 }
             }
             
