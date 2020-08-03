@@ -64,6 +64,12 @@ class CreateUserViewController: UIViewController {
         
         // Setting the selected image as the default pic at startup
         selectedImage = defaultProfilePic
+        
+        // Giving the image view rounded corners
+        profilePicture.clipsToBounds = true
+        profilePicture.layer.cornerRadius = profilePicture.frame.width / 2
+        
+        view.backgroundColor = .link
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -224,6 +230,8 @@ class CreateUserViewController: UIViewController {
                     CacheManager.password = password
                     print("Password: \(CacheManager.password ?? "No password found")")
                     
+                    // Store the creds thru the user-defaults for extra protection
+                    
                     // Transition to the setup screen
                     strongSelf.transitionToFeed()
                 }
@@ -242,7 +250,7 @@ class CreateUserViewController: UIViewController {
     
     func transitionToFeed() {
         
-        let feedTableViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.feedTableViewController) as? FeedTableViewController
+        let feedTableViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.tabBarController) as? RDTabBarController
         
         view.window?.rootViewController = feedTableViewController
         view.window?.makeKeyAndVisible()

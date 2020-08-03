@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+/// The table view cell that is displayed on the Feed Controller to post something to Social Spark
 class ShareSomethingCell: UITableViewCell {
     
     @IBOutlet weak var userImageView: UIImageView!

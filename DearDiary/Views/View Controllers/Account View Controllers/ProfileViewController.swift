@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
     
@@ -22,6 +25,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var secondImageView: UIImageView!
     
     @IBOutlet weak var lastImageView: UIImageView!
+    
+    let JGHUD = AuthHUD.create()
+    
+    let signOutButton = UIImage(named: "signOutImage-1")
 
     override func viewDidLoad() {
         
@@ -29,8 +36,24 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupElements()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: signOutButton, style: .plain, target: self, action: #selector(signOut))
+        
     }
     
+    
+    @objc func signOut(_ sender: AnyObject) {
+        do {
+            try Auth.auth().signOut()
+            let vc = HomeViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        }
+        catch let signOutError as NSError {
+            AuthHUD.handle(JGHUD, with: AuthHudInfo(type: .error, text: "Error", detailText: "There was an error logging you out. Sorry for the inconvience"))
+            print("Error signing out: \(signOutError)")
+        }
+        
+    }
     
     @IBAction func signOutTapped(_ sender: Any) {
         

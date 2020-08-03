@@ -1,14 +1,20 @@
 //
-//  CommentsTableViewController.swift
+//  SparksViewController.swift
 //  DearDiary
 //
-//  Created by  Ronit D. on 7/20/20.
+//  Created by  Ronit D. on 8/2/20.
 //  Copyright © 2020 Ronit Dhingra. All rights reserved.
 //
 
 import UIKit
 
-class CommentsTableViewController: UITableViewController {
+class SparksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var sparksTableView: UITableView!
+    @IBOutlet weak var noSparksLabel: UILabel!
+    @IBOutlet weak var noSparksDescriptiveLabel: UILabel!
+    
+    var models: [(title: String, note: String)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,30 +24,60 @@ class CommentsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.backgroundView?.backgroundColor = .link
+        view.backgroundColor = .white
+        sparksTableView.dataSource = self
+        sparksTableView.delegate = self
+    }
+    
+    @IBAction func didTapAddSpark(_ sender: Any) {
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "NewSpark") as? NewSparkViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
+        vc.title = "New Spark"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.completion = { noteTitle, note in
+            self.navigationController?.popToRootViewController(animated: true)
+            self.models.append((title: noteTitle, note: note))
+            self.noSparksLabel.isHidden = true
+            self.noSparksDescriptiveLabel.isHidden = true
+            self.sparksTableView.isHidden = false
+            self.sparksTableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return models.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SparkCell", for: indexPath) as! SparkCell
+        cell.titleLabel.text = models[indexPath.row].title
+        cell.noteLabel.text = models[indexPath.row].note
         return cell
     }
-    */
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // Show note controller
+        
+        let model = models[indexPath.row]
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "CurrentSpark") as? CurrentSparkViewController else { return }
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.title = "Current Spark"
+        vc.noteTitle = model.title
+        vc.note = model.note
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

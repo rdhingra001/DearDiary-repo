@@ -37,21 +37,26 @@ class CurrentChatViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         
         message.append(Message(sender: selfSender, messageId: "1", sentDate: Date(), kind: .text("Hello world message")))
+
+        message.append(Message(sender: selfSender, messageId: "1", sentDate: Date(), kind: .text("Hello world message. Hello world message")))
+        view.backgroundColor = .link
+
     }
     
 }
 
 extension CurrentChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
     func currentSender() -> SenderType {
-        <#code#>
+        return selfSender
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        <#code#>
+        return message[indexPath.section]
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        <#code#>
+        return message.count
+        
     }
     
     

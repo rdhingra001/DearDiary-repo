@@ -30,14 +30,24 @@ class ChatHomeViewController: UIViewController {
         label.isHidden = true
         return label
     }()
+    
+    private let composeButton = UIImage(named: "Compose")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(composeMessage))
+        view.backgroundColor = .link
         view.addSubview(chatsTableView)
         setupTableView()
         fetchConversations()
+    }
+    
+    @objc func composeMessage(_ sender: Any) {
+        let vc = NewChatViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {

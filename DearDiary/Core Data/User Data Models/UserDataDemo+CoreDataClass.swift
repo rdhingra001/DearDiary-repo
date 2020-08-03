@@ -12,6 +12,7 @@ import CoreData
 
 @objc(UserDataDemo)
 
+/// The class to manage our core data elements stored on-device
 public class UserDataDemo: NSManagedObject {
 
 }

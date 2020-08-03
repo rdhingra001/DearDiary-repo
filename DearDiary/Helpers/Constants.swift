@@ -20,6 +20,8 @@ struct Constants {
         static let loginViewController = "LoginVC"
         static let homeViewController = "HomeVC"
         static let feedTableViewController = "FeedVC"
+        static let navigationController = "NavVC"
+        static let tabBarController = "TabBarVC"
         
     }
     

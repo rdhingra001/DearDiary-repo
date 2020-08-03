@@ -123,20 +123,15 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         checkValidation()
     }
     
     override func viewDidLayoutSubviews() {
-        FacebookLoginButton.frame = CGRect(x: 0, y: 0, width: 334, height: 50)
-        GoogleLoginButton.frame = CGRect(x: 0, y: 70, width: 334, height: 50)
-        ASALoginButon.frame = CGRect(x: 0, y: 140, width: 334, height: 45)
-        
-        
-        // Centering the theird party buttons in perspective of the stack view
-        NSLayoutConstraint.activate([
-                                        FacebookLoginButton.centerXAnchor.constraint(equalTo: homeStackView.centerXAnchor),
-                                        ASALoginButon.centerXAnchor.constraint(equalTo: homeStackView.centerXAnchor),
-                                        GoogleLoginButton.centerXAnchor.constraint(equalTo: homeStackView.centerXAnchor)])
+    
+        FacebookLoginButton.frame = CGRect(x: 0, y: 0, width: signUpButton.width, height: signUpButton.height)
+        GoogleLoginButton.frame = CGRect(x: 0, y: 70, width: signUpButton.width, height: signUpButton.height)
+        ASALoginButon.frame = CGRect(x: 0, y: 140, width: signUpButton.width, height: signUpButton.height-5)
         
     }
     
@@ -368,6 +363,8 @@ extension HomeViewController: LoginButtonDelegate, ASAuthorizationControllerPres
                 }
                 
                 strongSelf.storeAppleUserDataStandard(firstName: userFirstName, lastName: userLastName, email: userEmail, userId: userId, username: username)
+                
+                strongSelf.transitionToFeed()
                 
                 
                 

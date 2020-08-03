@@ -52,9 +52,7 @@ class LoginViewController: UIViewController {
         Utilities.styleFilledButton(loginButton)
     }
     
-    
-    
-    @IBAction func loginTapped(_ sender: Any) {
+    private func loginUser() {
         
         // Validate the fields
         let error = validateFields()
@@ -100,13 +98,32 @@ class LoginViewController: UIViewController {
                     CacheManager.uid = uid
                     debugPrint("UID: \(CacheManager.uid ?? "No uid found")")
                     
+                    AuthHUD.dismiss(strongSelf.authHud, type: .show, text: "Processing", detailText: "Logging you in...")
+                    
                     strongSelf.transitionToFeed()
                 }
             }
             
             
         }
+    }
+    
+    
+    
+    @IBAction func loginTapped(_ sender: Any) {
         
+        let alert = UIAlertController(title: nil, message: "Would you like to proceed?", preferredStyle: .actionSheet)
+        
+        let yesAction = UIAlertAction(title: "Continue", style: .default) { [self] (action) in
+            self.loginUser()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Go Back", style: .cancel, handler: nil)
+        
+        alert.addAction(yesAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func showMessage(_ title: String?, message: String?) {
@@ -166,9 +183,9 @@ class LoginViewController: UIViewController {
     
     func transitionToFeed() {
         
-        let FeedTableViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.feedTableViewController) as? FeedTableViewController
+        let vc = storyboard?.instantiateViewController(identifier: Constants.Storyboard.tabBarController) as? RDTabBarController
         
-        view.window?.rootViewController = FeedTableViewController
+        view.window?.rootViewController = vc
         view.window?.makeKeyAndVisible()
     }
     

@@ -15,6 +15,10 @@ class FeedTableViewController: UITableViewController {
     
     var Posts = [Post]()
     
+    let JGHUD = AuthHUD.create()
+    
+    let signOutButton = UIImage(named: "signOutImage-1")
+    
     @IBOutlet weak var homeTableView: UITableView!
 
     override func viewDidLoad() {
@@ -26,15 +30,13 @@ class FeedTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        homeTableView.dataSource = self
-        homeTableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.backgroundView?.backgroundColor = .link
         
         
-        let feedTableViewController = (self.storyboard?.instantiateViewController(withIdentifier: "FeedVC"))!
-        let nav = UINavigationController(rootViewController: feedTableViewController)
-        self.present(nav, animated: true, completion: nil)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(signOut))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: signOutButton, style: .plain, target: self, action: #selector(signOut))
     }
     
     func transitionToHome() {
@@ -74,14 +76,12 @@ class FeedTableViewController: UITableViewController {
         }
     }
     
-    @objc func signOut(_ sender: Any) {
-        KeychainWrapper.standard.removeObject(forKey: "uid")
-        
+    @objc func signOut(_ sender: AnyObject) {
         do {
             try Auth.auth().signOut()
         }
         catch let signOutError as NSError {
-            showMessage("Error", message: "Unfortunately, there is an error and you could not be logged out. Sorry for the inconvenience :(.", dismiss: "Dismiss")
+            AuthHUD.handle(JGHUD, with: AuthHudInfo(type: .error, text: "Error", detailText: "There was an error logging you out. Sorry for the inconvience"))
             print("Error signing out: \(signOutError)")
         }
         dismiss(animated: true, completion: nil)
@@ -132,13 +132,9 @@ class FeedTableViewController: UITableViewController {
             }
         }
         
-        if indexPath.row == 0 + Posts.count {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
-                cell.configCell(Posts[indexPath.row])
-            }
-        }
-        
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell else { return UITableViewCell() }
+        cell.configCell(Posts[indexPath.row-1])
+        return cell
        
     }
     

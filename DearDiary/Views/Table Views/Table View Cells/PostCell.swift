@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+/// The table view cell that
 class PostCell: UITableViewCell {
     
     
