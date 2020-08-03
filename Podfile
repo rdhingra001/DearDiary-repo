@@ -7,13 +7,31 @@ target 'DearDiary' do
 
   # Pods for DearDiary
 
+# Pods for Firebase
+
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
-pod 'Firebase/Firestore'
+pod 'Firebase/Database'
 pod 'Firebase/Core'
 pod 'Firebase/Storage'
 pod 'Firebase'
-pod 'Firebase/InAppMessaging'
-pod 'Firebase/Messaging'
+pod 'Firebase/Crashlytics'
+pod 'Firebase/Performance'
+pod 'Firebase/DynamicLinks'
+
+# Third Party SDK's
+
+pod 'FBSDKLoginKit'
+pod 'GoogleSignIn'
+
+# Messaging
+pod 'MessageKit'
+pod 'SDWebImage'
+
+
+# Custom HUDs
+pod 'JGProgressHUD'
+    
+
 
 end
